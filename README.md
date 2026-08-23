@@ -1,15 +1,15 @@
-## ESP32-Based Adafruit LiDAR 2D & 3D Scanner
+## ESP32-Based VL53L0X LiDAR 2D & 3D Scanner
 
 **WORK IN PROGRESS**
 
-Desktop LiDAR scanner built using an ESP32, Adafruit ToF sensor, and stepper motors.
+Desktop LiDAR scanner built using an ESP32, a VL53L0X ToF distance sensor, and stepper motors.
 
 Currently developing the ESP32 firmware for sensor readings, motor control, positioning, and 2D/3D scanning.
 
 ### Current
 
 * ESP32 firmware
-* Adafruit ToF sensor
+* VL53L0X ToF sensor
 * Distance measurements
 * Stepper motor control
 * 2D scanning
