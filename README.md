@@ -1,4 +1,4 @@
-# ESP32-Based LiDAR Scanner
+## ESP32-Based LiDAR Scanner
 
 **2D & 3D Desktop Scanning System**
 
