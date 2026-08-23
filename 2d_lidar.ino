@@ -10,19 +10,21 @@ Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 const int SAMPLE_SIZE = 10;
 float readings[SAMPLE_SIZE];
 
-void setup() {
-  // put your setup code here, to run once:
-    // put your main code here, to run repeatedly:
-Serial.begin(115200)
-while (! Serial) {
-  delay (1)
+void setup() { 
   //esp32 initialization for constant/automatic sensor reading
+   float x = R * cos(radians);
+   float y = R * sin(radians);
   lox.begin();
   lox.startContinuous();
   lox.setMeasurementTimingBudgetMicroSeconds(20000);
   lox.setSignalRateLimit(0.1);
   lox.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
   lox.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
+  // put your setup code here, to run once:
+    // put your main code here, to run repeatedly:
+Serial.begin(115200);
+while (! Serial) {
+  delay (1)
   }
 }
 
@@ -46,8 +48,7 @@ void loop() {
 
     //math
     float radians = A * DEG_TO_RAD;
-    float x = R * cos(radians);
-    float y = R * sin(radians);
+   
     float A = 0; // example angle for now
     float R = measure.RangeMilliMeter; // example radius for now
     const float DEG_TO_RAD = 3.14159265f / 180.0f; 
