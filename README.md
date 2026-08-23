@@ -6,7 +6,7 @@ Desktop LiDAR scanner built using an ESP32, Adafruit ToF sensor, and stepper mot
 
 Currently developing the ESP32 firmware for sensor readings, motor control, positioning, and 2D/3D scanning.
 
-## Current
+### Current
 
 * ESP32 firmware
 * Adafruit ToF sensor
