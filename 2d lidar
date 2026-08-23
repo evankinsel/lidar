@@ -32,10 +32,8 @@ void loop() {
     Serial.println(F("Failed to boot VL53L0X"));
     while(1);
   }
-
    VL53L0X_RangingMeasurementData_t measure;
 
-    
   Serial.print("Reading a measurement... ");
   lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
 
@@ -43,14 +41,15 @@ void loop() {
     Serial.print("Distance (mm): "); Serial.println(measure.RangeMilliMeter);
   } else {
     Serial.println(" out of range ");
-void loop() 
+    float x = R * cos(radians);
+    float y = R * sin(radians);
+    Serial.print(x);
+    Serial.print(",");
+    Serial.println(y);
   }
   
   {
       delay(100);
   }
 }
-Serial.print(x);
-Serial.print(",");
-Serial.println(y);
 }
