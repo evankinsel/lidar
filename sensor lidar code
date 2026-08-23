@@ -2,15 +2,15 @@
 #include <SPI.h>
 #include "Adafruit_VL53L0X.h"
 #include <Arduino.h>
-#include <cmath> // Needed for cos and sin
+#include <cmath> // used for the cos and sin math
 
 //variable land
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
-//trying to define the math section of collecting 3-axios measuremenats #getting cooked
+//trying to define the math section of collecting 3-axis measuremenats #getting cooked
 
 const int SAMPLE_SIZE = 10;
 float readings[SAMPLE_SIZE];
-float R = 5; // example radius
+float R = 5; // example radius for now
 float radians = A * DEG_TO_RAD;
 float x = R * cos(radians);
 float y = R * sin(radians);
