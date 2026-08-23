@@ -1,4 +1,4 @@
-## ESP32-Based VL53L0X LiDAR 2D & 3D Scanner
+## ESP32 Based VL53L0X LiDAR 2D & 3D Scanner
 
 **WORK IN PROGRESS**
 
