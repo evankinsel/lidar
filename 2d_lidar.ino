@@ -1,35 +1,43 @@
 
 #include <SPI.h>
-#include "Adafruit_VL53L0X.h"
+#include <Adafruit_VL53L0X.h>
 #include <Arduino.h>
 #include <cmath> // used for the cos and sin math
 
 //variable land
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
-const int SAMPLE_SIZE = 10;
-float readings[SAMPLE_SIZE];
+
 
 void setup() { 
   //esp32 initialization for constant/automatic sensor reading
+    //math
+   VL53L0X_RangingMeasurementData_t measure;
+   float A = 0; // example angle for now
+   const float DEG_TO_RAD = 3.14159265f / 180.0f; 
+   float radians = A * DEG_TO_RAD; 
+   float R = measure.RangeMilliMeter; // example radius for now
    float x = R * cos(radians);
    float y = R * sin(radians);
-  lox.begin();
-  lox.startContinuous();
-  lox.setMeasurementTimingBudgetMicroSeconds(20000);
-  lox.setSignalRateLimit(0.1);
-  lox.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
-  lox.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
+   
+  
   // put your setup code here, to run once:
     // put your main code here, to run repeatedly:
 Serial.begin(115200);
-while (! Serial) {
+while (! Serial) { 
   delay (1)
   }
+
+  lox.begin();
+  lox.startContinuous();
+  lox.setMeasurementTimingBudgetMicroSeconds(20000); // set timing budget to 20ms
+  lox.setSignalRateLimit(0.1); // set signal rate limit to 0.1 MCPS
+  lox.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18); // first laser range
+  lox.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // second laser range (more detailed)
+
 }
 
 void loop() {
-
 
  Serial.println("Adafruit VL53L0X test");
   if (!lox.begin()) {
@@ -46,12 +54,9 @@ void loop() {
   } else {
     Serial.println(" out of range ");
 
-    //math
-    float radians = A * DEG_TO_RAD;
-   
-    float A = 0; // example angle for now
-    float R = measure.RangeMilliMeter; // example radius for now
-    const float DEG_TO_RAD = 3.14159265f / 180.0f; 
+    const int SAMPLE_SIZE = 10;
+    float readings[SAMPLE_SIZE];
+
     // this is the conversion from degrees to radians
     Serial.print(x);
     Serial.print(",");
