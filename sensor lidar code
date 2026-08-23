@@ -1,0 +1,45 @@
+void setup() {
+  // put your setup code here, to run once:
+#include <SPI.h>
+#include "Adafruit_VL53L0X.h"
+#include <Arduino.h>
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+Serial.begin(115200)
+while (! Serial) {
+  delay (1)
+}
+ Serial.println("Adafruit VL53L0X test");
+  if (!lox.begin()) {
+    Serial.println(F("Failed to boot VL53L0X"));
+    while(1);
+  }
+  {
+   VL53L0X_RangingMeasurementData_t measure;
+    
+  Serial.print("Reading a measurement... ");
+  lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
+
+  if (measure.RangeStatus != 4) {  // phase failures have incorrect data
+    Serial.print("Distance (mm): "); Serial.println(measure.RangeMilliMeter);
+  } else {
+    Serial.println(" out of range ");
+void loop() 
+  }
+  {
+      delay(100);
+  }
+}
+const int SAMPLE_SIZE [10];
+float readings[SAMPLE_SIZE];
+float R = 
+float radians = A * DEG_TO_RAD
+float x = R * cos(radians);
+float y = R * sin(radians);
+
+Serial.print x
+
+}
