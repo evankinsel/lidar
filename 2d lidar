@@ -6,14 +6,10 @@
 
 //variable land
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
-//trying to define the math section of collecting 3-axis measuremenats #getting cooked
 
 const int SAMPLE_SIZE = 10;
 float readings[SAMPLE_SIZE];
 float R = 5; // example radius for now
-float radians = A * DEG_TO_RAD;
-float x = R * cos(radians);
-float y = R * sin(radians);
 
 
 void setup() {
@@ -22,6 +18,13 @@ void setup() {
 Serial.begin(115200)
 while (! Serial) {
   delay (1)
+  lox.begin();
+  lox.startContinuous();
+  lox.setMeasurementTimingBudgetMicroSeconds(20000);
+  lox.setSignalRateLimit(0.1);
+  lox.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
+  lox.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
+  }
 }
 
 void loop() {
@@ -41,6 +44,9 @@ void loop() {
     Serial.print("Distance (mm): "); Serial.println(measure.RangeMilliMeter);
   } else {
     Serial.println(" out of range ");
+
+    //math
+    float radians = A * DEG_TO_RAD;
     float x = R * cos(radians);
     float y = R * sin(radians);
     Serial.print(x);
