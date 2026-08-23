@@ -13,6 +13,7 @@ float readings[SAMPLE_SIZE];
 
 float x;
 float y;
+float A; 
 
 
 
@@ -49,7 +50,8 @@ void loop() {
     Serial.print("Distance (mm): ");
     Serial.println(measure.RangeMilliMeter);
 
-    float A = 0; // example angle for now
+    A = 0; // example angle for now
+    
     const float DEG_TO_RAD = 3.14159265f / 180.0f; 
     float radians = A * DEG_TO_RAD; 
     float distance = measure.RangeMilliMeter; // example radius for now
@@ -67,6 +69,12 @@ void loop() {
     Serial.println(" out of range ");
   }
   
+//void Loop() {
+//float distance * A 
+
+
+}
+
   {
     delay(100);
   }
