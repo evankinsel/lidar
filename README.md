@@ -1,4 +1,4 @@
-# ESP32-Based Adafruit LiDAR 2D & 3D Scanner
+## ESP32-Based Adafruit LiDAR 2D & 3D Scanner
 
 **WORK IN PROGRESS**
 
@@ -15,7 +15,7 @@ Currently developing the ESP32 firmware for sensor readings, motor control, posi
 * 2D scanning
 * Early 3D scanning development
 
-## Eventually
+### Eventually
 
 * Physical scanner
 * 2D scanning system
@@ -24,6 +24,6 @@ Currently developing the ESP32 firmware for sensor readings, motor control, posi
 * 3D point cloud generation
 * Point cloud visualization
 
-## Goal
+### End Goal
 
 Build a working desktop 3D scanner from scratch.
