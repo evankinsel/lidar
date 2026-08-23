@@ -26,4 +26,4 @@ Currently developing the ESP32 firmware for sensor readings, motor control, posi
 
 ### End Goal
 
-Build a working desktop 3D scanner from scratch.
+My end goal is to have a fully working desktop 3D scanner from scratch, with a 3D point cloud software to visualize the data
