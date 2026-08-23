@@ -43,7 +43,13 @@ void loop() {
 
   Serial.print("Reading a measurement... ");
 
-  lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
+  //rangingtest function to get the distance measurement from the sensor
+  //measure stores the disntace value in mm
+  //the & means that the function takes the address of the measure variable, so it can modify it directly
+  // so bascially the "&" in &measure passes all the data into measure
+  // and pulls all the data for every mention of it later, from that specific &measure. 
+  // updates the numbers inside the function, and then uses the updated values in the main code like measure.RangeMilliMeter.
+  lox.rangingTest(&measure, false); // pass in 'true' to get all the extra debug data printout
 
   if (measure.RangeStatus != 4) {  // phase failures have incorrect data
     
@@ -71,9 +77,6 @@ void loop() {
   
 //void Loop() {
 //float distance * A 
-
-
-}
 
   {
     delay(100);
