@@ -9,8 +9,6 @@ Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
 const int SAMPLE_SIZE = 10;
 float readings[SAMPLE_SIZE];
-float R = 5; // example radius for now
-
 
 void setup() {
   // put your setup code here, to run once:
@@ -50,6 +48,10 @@ void loop() {
     float radians = A * DEG_TO_RAD;
     float x = R * cos(radians);
     float y = R * sin(radians);
+    float A = 0; // example angle for now
+    float R = measure.RangeMilliMeter; // example radius for now
+    const float DEG_TO_RAD = 3.14159265f / 180.0f; 
+    // this is the conversion from degrees to radians
     Serial.print(x);
     Serial.print(",");
     Serial.println(y);
