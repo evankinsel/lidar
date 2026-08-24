@@ -1,7 +1,5 @@
 import numpy as np
-import pandas as pd
 import open3d as o3d
-import pymeshlab as ml
 
 #1. Load the raw XYZ coordinates
 pcd = o3d.io.read_point_cloud("pointcloud.ply")
