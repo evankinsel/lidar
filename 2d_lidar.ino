@@ -82,3 +82,21 @@ void loop() {
     delay(100);
   }
 }
+
+
+// add this after i verify that the measuring is working correctly
+//if (measure.RangeStatus != 4) {  // phase failures have incorrect data
+//      display.clearDisplay();
+//      display.setCursor(0,0);
+//      display.print(measure.RangeMilliMeter);
+//      display.print("mm");
+//      display.display();
+//      Serial.println();
+//      delay(50);
+//  } else {
+//    display.display();
+//    display.clearDisplay();
+//    return;
+//  }
+  //this also will allow me to flash it which is cool but yea, need to make sure it works first then prints on serial
+  //monitor then prints on oled after that
