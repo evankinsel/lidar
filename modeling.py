@@ -10,3 +10,4 @@ pcd = pcd.voxel_down_sample(voxel_size=0.05)
 
 #3. Visualize the final 3D model in point cloud format instead of mesh for now at least
 o3d.visualization.draw_geometries([pcd], window_name="3D Model", width=800, height=600, left=50, top=50, point_show_normal=False)
+
