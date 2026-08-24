@@ -56,7 +56,7 @@ void loop() {
     Serial.print("Distance (mm): ");
     Serial.println(measure.RangeMilliMeter);
 
-    A = 0; // example angle for now
+    A = 90; // example angle for now since itll be pointing upward 
     
     const float DEG_TO_RAD = 3.14159265f / 180.0f; 
     float radians = A * DEG_TO_RAD; 
