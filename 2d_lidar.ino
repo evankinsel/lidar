@@ -4,9 +4,6 @@
 #include <cmath> // used for the cos and sin math
 
 
-
-
-
 //variable land
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
