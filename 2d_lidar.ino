@@ -3,10 +3,18 @@
 #include <Arduino.h>
 #include <cmath> // used for the cos and sin math
 
+
+
+
+
 //variable land
 Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
 VL53L0X_RangingMeasurementData_t measure;
+const int LIDAR_PIN = 4; (GPIO4)
+const int LIDAR_POWER_PIN = 5; (GPIO5)
+const int LIDAR_RESET_PIN = 15; (GPIO15)
+const int LIDAR_I2C_ADDRESS = 0x29; (default I2C address for VL53L0X)
 
 const int SAMPLE_SIZE = 10;
 float readings[SAMPLE_SIZE];
