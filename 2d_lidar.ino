@@ -16,6 +16,9 @@ const int LIDAR_POWER_PIN = 5; (GPIO5)
 const int LIDAR_RESET_PIN = 15; (GPIO15)
 const int LIDAR_I2C_ADDRESS = 0x29; (default I2C address for VL53L0X)
 
+//use gpio 21 and 22 for sda and scl
+//use gpio 6 when you want to flash the esp32, and then switch back to gpio 4 for lidar reading.
+
 const int SAMPLE_SIZE = 10;
 float readings[SAMPLE_SIZE];
 
