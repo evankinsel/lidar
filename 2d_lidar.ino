@@ -16,7 +16,7 @@ const int LIDAR_I2C_ADDRESS = 0x29; (default I2C address for VL53L0X)
 //use gpio 21 and 22 for sda and scl
 //use gpio 6 when you want to flash the esp32, and then switch back to gpio 4 for lidar reading.
 
-const int SAMPLE_SIZE = 10;
+const int SAMPLE_SIZE = 2000;
 float readings[SAMPLE_SIZE];
 
 float x;
@@ -81,6 +81,8 @@ void loop() {
 
   } else {
     Serial.println(" out of range ");
+
+    
   }
   
 //void Loop() {
@@ -93,6 +95,7 @@ void loop() {
 
 
 // add this after i verify that the measuring is working correctly
+//need to pin this up too
 //if (measure.RangeStatus != 4) {  // phase failures have incorrect data
 //      display.clearDisplay();
 //      display.setCursor(0,0);
