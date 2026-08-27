@@ -13,11 +13,12 @@ const int LIDAR_POWER_PIN = 5; (GPIO5)
 const int LIDAR_RESET_PIN = 15; (GPIO15)
 const int LIDAR_SDA_PIN = 21; (GPIO21)
 const int LIDAR_SCL_PIN = 22; (GPIO22)
+const int LIDAR_FLASH_PIN = 6; (GPIO6) //use for flashing when you get a battery for the ESP32
+const int LIDAR_READING_PIN = 4; (GPIO4) //receives lidar scanning data output
 const int LIDAR_I2C_ADDRESS = 0x29; (default I2C address for VL53L0X)
 
+const float PI = 3.14159265f; // define pi for angle calculations
 
-//use gpio 21 and 22 for sda and scl
-//use gpio 6 when you want to flash the esp32, and then switch back to gpio 4 for lidar reading.
 
 const int SAMPLE_SIZE = 2000;
 float readings[SAMPLE_SIZE];
@@ -69,7 +70,7 @@ void loop() {
 
     A = 90; // example angle for now since itll be pointing upward 
     
-    const float DEG_TO_RAD = 3.14159265f / 180.0f; 
+const float DEG_TO_RAD = PI / 180.0f; // conversion from degrees to radians
     float radians = A * DEG_TO_RAD; 
     float distance = measure.RangeMilliMeter; // example radius for now
 
