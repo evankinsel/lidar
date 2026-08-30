@@ -19,14 +19,12 @@ const int LIDAR_I2C_ADDRESS = 0x29; (default I2C address for VL53L0X)
 
 const float PI = 3.14159265f; // define pi for angle calculations
 
-
 const int SAMPLE_SIZE = 2000;
 float readings[SAMPLE_SIZE];
 
 float x;
 float y;
 float A; 
-
 
 
 void setup() { 
@@ -86,6 +84,18 @@ const float DEG_TO_RAD = PI / 180.0f; // conversion from degrees to radians
   } else {
     Serial.println(" out of range ");
 
+    if (measure.RangeStatus != 4) {  // phase failures have incorrect data
+      display.clearDisplay();
+      display.setCursor(0,0);
+      display.print(measure.RangeMilliMeter);
+      display.print("mm");
+      display.display();
+      Serial.println();
+      delay(50);
+       else {
+        display.display();
+        display.clearDisplay();
+    return;  
     
   }
   
@@ -96,22 +106,5 @@ const float DEG_TO_RAD = PI / 180.0f; // conversion from degrees to radians
     delay(100);
   }
 }
-
-
-// add this after i verify that the measuring is working correctly
-//need to pin this up too
-//if (measure.RangeStatus != 4) {  // phase failures have incorrect data
-//      display.clearDisplay();
-//      display.setCursor(0,0);
-//      display.print(measure.RangeMilliMeter);
-//      display.print("mm");
-//      display.display();
-//      Serial.println();
-//      delay(50);
-//  } else {
-//    display.display();
-//    display.clearDisplay();
-//    return;
-//  }
   //this also will allow me to flash it which is cool but yea, need to make sure it works first then prints on serial
   //monitor then prints on oled after that
