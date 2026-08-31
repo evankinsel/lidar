@@ -1,6 +1,7 @@
 #include <SPI.h>
 #include <Adafruit_VL53L0X.h>
 #include <Arduino.h>
+#include <Adafruit_SSD1306.h>
 #include <cmath> // used for the cos and sin math
 
 
